@@ -1,0 +1,43 @@
+{
+    "base_app"          :   "Silent",
+
+    "base_debug"        :   true,
+
+    "base_key"          :   "",
+
+    "db_mysql"          :   {
+        "master"        :   [
+            {
+                "host"      :   "192.168.33.200",
+                "user"      :   "root",
+                "passwd"    :   "qwer",
+                "dbname"    :   "qz_center",
+                "write"     :   true
+            },
+            {
+                "host"      :   "192.168.33.200",
+                "user"      :   "root",
+                "passwd"    :   "qwer",
+                "dbname"    :   "qz_center",
+                "write"     :   true
+            }
+        ],
+        "slave"         :   [
+            {
+                "host"      :   "192.168.33.200",
+                "user"      :   "root",
+                "passwd"    :   "qwer",
+                "dbname"    :   "qz_center",
+                "write"     :   true
+            },
+            {
+                "host"      :   "192.168.33.200",
+                "user"      :   "root",
+                "passwd"    :   "qwer",
+                "dbname"    :   "qz_center",
+                "write"     :   true
+            }
+        ]
+    }
+
+}
