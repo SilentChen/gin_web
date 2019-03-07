@@ -1,5 +1,6 @@
-package admin
+package api
 
 type Base struct {
 
 }
+

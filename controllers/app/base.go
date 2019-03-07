@@ -1,4 +1,4 @@
-package admin
+package app
 
 type Base struct {
 
