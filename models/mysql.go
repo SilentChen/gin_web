@@ -51,8 +51,37 @@ func (_ *Mysql) GetInstance() *sql.DB{
 	return this.instance
 }
 
-func (_ *Mysql) GetAll(record map[string]string) error {
-	rows, err := this.instance.Query("select * from users limit 10")
+func (_ *Mysql) GetRow(querySql string, record map[string]string) error {
+	row, err := this.instance.Query(querySql)
+	if nil != err {
+		return err
+	}
+
+	columns, err := row.Columns()
+	if nil != err {
+		return err
+	}
+
+	scanArgs := make([]interface{}, len(columns))
+	values   := make([]interface{}, len(columns))
+
+	for j := range values {
+		scanArgs[j] = &values[j]
+	}
+
+	row.Next()
+	err = row.Scan(scanArgs)
+	for i, col := range values {
+		if nil != col {
+			record[columns[i]] = string(col.([]byte))
+		}
+	}
+
+	return  nil
+}
+
+func (_ *Mysql) GetAll(querySql string, records *[]map[string]string) error {
+	rows, err := this.instance.Query(querySql)
 	defer rows.Close()
 
 	if nil != err {
@@ -66,6 +95,7 @@ func (_ *Mysql) GetAll(record map[string]string) error {
 
 	scanArgs 	:= make([]interface{}, len(columns))
 	values 		:= make([]interface{}, len(columns))
+	record      := make(map[string]string)
 
 	for j := range values {
 		scanArgs[j] = &values[j]
@@ -78,6 +108,7 @@ func (_ *Mysql) GetAll(record map[string]string) error {
 				record[columns[i]] = string(col.([]byte))
 			}
 		}
+		*records = append(*records, record)
 	}
 
 	return nil;

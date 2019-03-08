@@ -12,8 +12,17 @@ type Test struct {
 
 func (_ *Test)Index(c *gin.Context)  {
 	db := new(models.Mysql)
+
 	record := make(map[string]string)
-	db.GetAll(record)
+	db.GetRow("select * from users limit 1", record)
 	log.Println(record)
-	c.String(200,"Hello World ! ")
+
+	var records []map[string]string
+	db.GetAll("select * from game_roles where accname = 'test'", &records)
+	log.Println(records)
+
+	c.JSON(200,gin.H{
+		"code"		:	200,
+		"message"	:	"success",
+	})
 }
