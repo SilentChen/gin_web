@@ -8,10 +8,10 @@ import (
 )
 
 type Mysql struct {
-
+	instance *sql.DB
 }
 
-var DBInstance *sql.DB
+var this Mysql
 
 func init() {
 
@@ -29,11 +29,10 @@ func init() {
 
 	dns := db_user + ":" + db_pwd + "@tcp(" + db_host + ":" + db_port + ")/" + db_name + "?charset=" + db_char + "&loc=Asia%2FShanghai"
 
-	DBInstance, err_dopen := sql.Open("mysql", dns)
+	this.instance, err = sql.Open("mysql", dns)
+	libs.CheckErr(err)
 
-	libs.CheckErr(err_dopen)
-
-	err_dping := DBInstance.Ping()
+	err_dping := this.instance.Ping()
 
 	libs.CheckErr(err_dping)
 
@@ -43,11 +42,43 @@ func init() {
 	db_open,err := cfg.Key("mysql.max_open_conns").Int()
 	libs.CheckErr(err)
 
-	DBInstance.SetMaxIdleConns(db_idel)
+	this.instance.SetMaxIdleConns(db_idel)
 
-	DBInstance.SetMaxOpenConns(db_open)
+	this.instance.SetMaxOpenConns(db_open)
 }
 
-func (_ *Mysql) test() {
-	
+func (_ *Mysql) GetInstance() *sql.DB{
+	return this.instance
+}
+
+func (_ *Mysql) GetAll(record map[string]string) error {
+	rows, err := this.instance.Query("select * from users limit 10")
+	defer rows.Close()
+
+	if nil != err {
+		return err
+	}
+
+	columns, err := rows.Columns()
+	if nil != err {
+		return err
+	}
+
+	scanArgs 	:= make([]interface{}, len(columns))
+	values 		:= make([]interface{}, len(columns))
+
+	for j := range values {
+		scanArgs[j] = &values[j]
+	}
+
+	for rows.Next() {
+		err = rows.Scan(scanArgs...)
+		for i, col := range values {
+			if col != nil {
+				record[columns[i]] = string(col.([]byte))
+			}
+		}
+	}
+
+	return nil;
 }
