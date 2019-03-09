@@ -70,7 +70,7 @@ func (_ *Mysql) GetRow(querySql string, record map[string]string) error {
 	}
 
 	row.Next()
-	err = row.Scan(scanArgs)
+	err = row.Scan(scanArgs...)
 	for i, col := range values {
 		if nil != col {
 			record[columns[i]] = string(col.([]byte))
