@@ -14,7 +14,7 @@ func (_ *Test)Index(c *gin.Context)  {
 	db := new(models.Mysql)
 
 	record := make(map[string]string)
-	db.GetRow("select * from game_roles limit 1", record)
+	db.GetRow("select * from users limit 1", record)
 	log.Println(record)
 
 	// var records []map[string]string
