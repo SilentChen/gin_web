@@ -1,0 +1,8 @@
+::1 - [2019-03-10 16:23:01] "GET /favicon.ico HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:04] "GET /debug/allocs?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:07] "GET /debug/block?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:10] "GET /debug/cmdline HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:14] "GET /debug/heap?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:18] "GET /debug/threadcreate?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:23] "GET /debug/allocs?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "
+::1 - [2019-03-10 16:23:29] "GET /debug/heap?debug=1 HTTP/1.1 404 0s "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" "

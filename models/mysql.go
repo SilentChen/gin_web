@@ -111,5 +111,5 @@ func (_ *Mysql) GetAll(querySql string, records *[]map[string]string) error {
 		*records = append(*records, record)
 	}
 
-	return nil;
+	return nil
 }
