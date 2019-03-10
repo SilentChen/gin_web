@@ -53,6 +53,8 @@ func (_ *Mysql) GetInstance() *sql.DB{
 
 func (_ *Mysql) GetRow(querySql string, record map[string]string) error {
 	row, err := this.instance.Query(querySql)
+	defer row.Close()
+
 	if nil != err {
 		return err
 	}

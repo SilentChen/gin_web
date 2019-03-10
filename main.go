@@ -4,7 +4,9 @@ import (
 	"gin"
 	"html/template"
 	"io"
+	"net/http"
 	"os"
+	"time"
 	"web/libs"
 )
 
@@ -40,7 +42,15 @@ func main() {
 
 	r.Static("/static", "static")
 
-	port := cfg.Key("app.port").String()
+	port := cfg.Key("http.port").String()
 
-	r.Run(port)
+	s := &http.Server{
+		Addr:           port,
+		Handler:        r,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
+
+	s.ListenAndServe()
 }
