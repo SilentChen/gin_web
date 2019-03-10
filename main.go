@@ -3,6 +3,7 @@ package main
 import (
 	"gin"
 	"web/libs"
+	 _ "net/http/pprof"
 )
 
 func init() {
