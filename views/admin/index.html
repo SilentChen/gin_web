@@ -1,5 +1,17 @@
-{{define "admin/index.html"}}
+<html xmlns="http://www.w3.org/1999/html">
+{{define "admin/index"}}
 {{template "layout/header"}}
-{{.title}}
+<div class="pageContainer">
+    {{template "layout/lefter"}}
+    <div class="splitter"></div>
+    <!-- 正文内容部分 -->
+    <div class="pageContent">
+        <iframe src="http://www.baidu.com" id="mainFrame" name="mainFrame"
+                frameborder="0" width="100%"  height="100%" frameBorder="0">
+        </iframe>
+    </div>
+</div>
+<!--{{.title}}-->
 {{template "layout/footer"}}
 {{ end }}
+</html>

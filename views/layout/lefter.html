@@ -1,0 +1,38 @@
+{{define "layout/lefter"}}
+    <!-- 左侧导航栏 -->
+<div class="pageSidebar">
+    <ul class="nav nav-stacked nav-pills">
+        <li role="presentation">
+            <a href="nav1.html" target="mainFrame" >课程管理</a>
+        </li>
+        <li role="presentation">
+            <a href="nav2.html" target="mainFrame">学生管理</a>
+        </li>
+        <li role="presentation">
+            <a href="nav3.html" target="mainFrame">教师管理</a>
+        </li>
+        <!-- 开始 -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="nav4.html" target="mainFrame">
+                个人设置<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="nav1.html" target="mainFrame">修改密码</a>
+                </li>
+                <li>
+                    <a href="nav2.html" target="mainFrame">退出系统</a>
+                </li>
+                <li>
+                    <a href="nav3.html" target="mainFrame">查看个人信息</a>
+                </li>
+            </ul>
+        </li>
+        <!-- 结束 -->
+        <li role="presentation">
+            <a href="nav5.html" target="mainFrame">权限设置</a>
+        </li>
+    </ul>
+</div>
+<!-- 左侧导航和正文内容的分隔线 -->
+{{end}}

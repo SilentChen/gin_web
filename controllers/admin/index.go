@@ -7,7 +7,7 @@ type Index struct {
 }
 
 func (_ *Index) Index(c *gin.Context) {
-	c.HTML(200, "admin/index.html", map[string]interface{}{
+	c.HTML(200, "admin/index", map[string]interface{}{
 		"title"	:	"first title",
 	})
 }
